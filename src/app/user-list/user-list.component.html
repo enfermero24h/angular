@@ -1,0 +1,17 @@
+    <div>
+        <h1>Lista de Usuarios</h1>
+        <button (click)="verModal = true">Agregar Usuario</button>
+        
+        <app-tabla-user-list
+        [users]="users"
+        (editUser)="editUserList($event)"
+        (deleteUser)="deleteUser($event)">
+        </app-tabla-user-list>
+
+        <app-modal-edit-create-user-list
+            [user]="editUser || newUser"
+            [showModal]="verModal"
+            (saveUser)="editUser ? updateUser() : addUser()"
+            (cancelEdit)="cancelEdit()">
+        </app-modal-edit-create-user-list>
+    </div>

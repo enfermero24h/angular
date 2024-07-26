@@ -1,0 +1,23 @@
+<!-- modal-edit-create-user-list.component.html -->
+<div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+      <h2>{{ user.id ? 'Editar Usuario' : 'Crear Usuario' }}</h2>
+      <form (ngSubmit)="onSave()">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" [value]="user?.nombre" (input)="onInputChange('nombre', $event)" name="nombre" required>
+        
+        <label for="direccion">Dirección:</label>
+        <input id="direccion" [value]="user?.direccion" (input)="onInputChange('direccion', $event)" name="direccion" required>
+        
+        <label for="email">Email:</label>
+        <input id="email" [value]="user?.email" (input)="onInputChange('email', $event)" name="email" required>
+        
+        <label for="foto">Foto:</label>
+        <input id="foto" [value]="user?.foto" (input)="onInputChange('foto', $event)" name="foto">
+        
+        <button type="submit">Guardar</button>
+        <button type="button" (click)="onCancel()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  

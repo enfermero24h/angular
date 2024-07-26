@@ -1,0 +1,26 @@
+<!-- tabla-user-list.component.html -->
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Email</th>
+            <th>Foto</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.nombre }}</td>
+            <td>{{ user.direccion }}</td>
+            <td>{{ user.email }}</td>
+            <td><img [src]="user.foto" alt="foto" width="50"></td>
+            <td>
+                <button (click)="onEdit(user)">Editar</button>
+                <button (click)="onDelete(user)">Eliminar</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
